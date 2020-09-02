@@ -1,0 +1,14 @@
+{
+  "posts": [
+    { "id": 1, "title": "json-server", "author": "typicode" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" },
+  "budget": [
+    {"id": 0, "month": "September", "year": 2019},
+    {"id": 1, "month": "October", "year": 2019},
+    {"id": 2, "month": "November", "year": 2019}
+  ]
+}
