@@ -6,6 +6,8 @@ import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
 
+import { getAllNotes, deleteNote, editNote } from './api'
+
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100%'
