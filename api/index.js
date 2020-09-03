@@ -1,7 +1,7 @@
 
-import getAllNotes from './getAllNotes'
-import createNote from './createNote'
-import deleteNote from './deleteNote'
-import editNote from './editNote';
+import getAllEntries from './getAllEntries'
+import createEntry from './createEntry'
+import deleteEntry from './deleteEntry'
+import editEntry from './editEntry';
 
-export { getAllNotes, createNote, deleteNote, editNote }
+export { getAllEntries, createEntry, deleteEntry, deleteEntry }

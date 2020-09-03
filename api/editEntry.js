@@ -1,6 +1,6 @@
 import { client, q } from '../config/db'
 
-const editNote = (noteId, newText) => client.query(
+const deleteEntry = (noteId, newText) => client.query(
   q.Update(
     q.Ref(q.Collection('current'), noteId),
     { data: { text: newText } },
@@ -10,4 +10,4 @@ const editNote = (noteId, newText) => client.query(
 .catch(err => console.warn(err))
 
 
-export default editNote
+export default deleteEntry

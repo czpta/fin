@@ -1,6 +1,6 @@
 import { client, q } from '../config/db'
 
-const createNote = text => client.query(
+const createEntry = text => client.query(
   q.Create(
     q.Collection('current'),
     {
@@ -14,4 +14,4 @@ const createNote = text => client.query(
 .catch(err => console.warn(err))
 
 
-export default createNote
+export default createEntry

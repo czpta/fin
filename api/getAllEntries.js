@@ -1,6 +1,6 @@
 import { client, q } from '../config/db'
 
-const getAllNotes = client.query(
+const getAllEntries = client.query(
   q.Paginate(
     q.Match(
       q.Ref('indexes/loan_amount')))
@@ -17,4 +17,4 @@ const getAllNotes = client.query(
   })
   .catch(error => console.warn('error', error.message))
 
-export default getAllNotes;
+export default getAllEntries;
