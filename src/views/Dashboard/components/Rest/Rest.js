@@ -6,6 +6,8 @@ import { Card, CardContent, Grid, Typography, Avatar } from '@material-ui/core';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import MoneyIcon from '@material-ui/icons/Money';
 
+import { getAllEntries, deleteEntry, editEntry } from '../../../../api'
+
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100%'
@@ -46,19 +48,35 @@ const Rest = props => {
   const classes = useStyles();
 
   // State
-  const [mainDB, setDB] = useState([]);
+  // const [mainDB, setDB] = useState([]); // No longer going with json-server
+  const [entry, setEntries] = useState([])
   
-  useEffect(() => {
-    // Loads data from json-server REST API
-    fetch('http://localhost:3000/budget')
-    .then(response => response.json())
-    .then((result) => {
-      setDB(result);
-    });
-  }, []);
-  console.log(mainDB ? mainDB[0] : "not loaded");
+  // No longer going with json-server npm package
+  // useEffect(() => {
+  //   // Loads data from json-server REST API
+  //   fetch('http://localhost:3000/budget')
+  //   .then(response => response.json())
+  //   .then((result) => {
+  //     setDB(result);
+  //   });
+  // }, []);
 
-  const lazyload = mainDB[0] ? <Typography variant="h3">Okay</Typography> : null;
+  useEffect(() => {
+    getAllEntries.then(res => setEntries(res))
+  }, [])
+  console.log(entry);
+
+  function LazyLoad(props) {
+    const reptiles = ["alligator", "snake", "lizard"];
+  
+    return (
+      <ol>
+        {entry.map((cost) => (
+          <li key={cost.data.data.loanId}>Month's cost: {cost.data.data.currentStanding}</li>
+        ))}
+      </ol>
+    );
+  }
 
   return (
     <Card
@@ -79,7 +97,8 @@ const Rest = props => {
             >
               Rest
             </Typography>
-            {lazyload}
+            {/*Input your entry result here */}
+            <LazyLoad cost={entry}/>
             <Typography variant="h3">Month</Typography>
           </Grid>
           <Grid item>
